@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+
+<title>WAI ARIA Cheatsheet &#183; mcdlr</title>
+
+<meta charset='utf-8'>
+<meta name='description' content='WAI ARIA Landmark Roles Cheatsheet and introduction'>
+<meta name='author' content='DrummerHead'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<link rel='stylesheet' href='stijl.css?7'>
+<link rel="stylesheet" href="../css/promiscuous.css?7">
+<link rel='image_src' href='http://mcdlr.com/img/thumbs/wai-aria-cheatsheet.jpg'>
+
+<!--
+ ____                                           _   _                _
+|  _ \ _ __ _   _ _ __ ___  _ __ ___   ___ _ __| | | | ___  __ _  __| |
+| | | | '__| | | | '_ ` _ \| '_ ` _ \ / _ \ '__| |_| |/ _ \/ _` |/ _` |
+| |_| | |  | |_| | | | | | | | | | | |  __/ |  |  _  |  __/ (_| | (_| |
+|____/|_|   \__,_|_| |_| |_|_| |_| |_|\___|_|  |_| |_|\___|\__,_|\__,_|
+            Made all this stuff, done with a lotta love :D
+-->
+</head>
+<body>
+<header id="brand">
+  <a href="/" title="Go to mcdlr homepage">Go to mcdlr homepage</a>
+</header>
+
+
+
+
+<header role='banner'>
+  <h1>WAI-ARIA Landmark Roles Cheatsheet</h1>
+  <nav>
+    <ol role='navigation'>
+      <li>
+        <a href='#what-is-wai-aria' rel='section'>What</a>
+      </li>
+      <li>
+        <a href='#wai-aria-benefits' rel='section'>Why</a>
+      </li>
+      <li>
+        <a href='#wai-aria-code-example' rel='section'>Code</a>
+      </li>
+    </ol>
+    <form role='search'>
+      <input type='search' placeholder='Example search form'>
+      <input type='submit' value='search'>
+    </form>
+  </nav>
+
+  <a href='http://www.w3.org/TR/wai-aria/roles#banner' rel='help external' id='role-banner'>
+    <code>
+      &#60;header role=&#34;banner&#34;&#62;
+    </code>
+  </a>
+  <a href='http://www.w3.org/TR/wai-aria/roles#navigation' rel='help external' id='role-navigation'>
+    <code>
+      &#60;ol role=&#34;navigation&#34;&#62;
+    </code>
+  </a>
+  <a href='http://www.w3.org/TR/wai-aria/roles#search' rel='help external' id='role-search'>
+    <code>
+      &#60;form role=&#34;search&#34;&#62;
+    </code>
+  </a>
+</header>
+
+<div role='main'>
+  <h2 id='what-is-wai-aria'>What is <abbr title='Accessible Rich Internet Applications'>WAI-ARIA</abbr>?</h2>
+  <p>In practice, WAI-ARIA gives us more attributes to assign to elements. There are two kinds of attributes, the <a href='http://www.w3.org/TR/wai-aria/roles#landmark_roles' rel='help external'><code>role</code></a> attribute and the <a href='http://www.w3.org/TR/wai-aria/states_and_properties#state_prop_def' rel='help external'><code>aria-.*</code></a> attributes (&#8220;.*&#8221; meaning that what follows &#8220;aria-&#8221; is variable)</p>
+  <p>These new attributes seek to increase the semantics of our documents, facilitate the <a href='http://www.w3.org/WAI/intro/aria#is' rel='external'>development of Rich Internet Applications</a> and improve <a href='http://www.w3.org/WAI/intro/aria.php#issues' rel='external'>Accessibility</a></p>
+  <p>The <code>aria-.*</code> attributes and the values they can have gives us information about the state of an element, and are more geared toward Rich Application Development.</p>
+  <p>The <code>role</code> attribute and the values it can have gives us information about the purpose of an element in question (is it navigation? Main data? Or tangential content?). Assistive technologies can use this information to jump directly to the main content, immediately detect the main navigation of the document, etc.</p>
+  <p>This document focuses on the more common WAI-ARIA Landmark Roles, as you can see displayed in yellow. Also, just because you see them here does not mean that they all should be used, it all depends on the actual content of your page. Some Roles are suitable for more than what is shown here, e.g. <code>complementary</code> is suitable for sidebars and also other kind of contents, for more info on any given Role just click on them.</p>
+  <h2 id='wai-aria-benefits'>Why should I use WAI-ARIA Landmark Roles?</h2>
+  <p>You will enrich the semantics of your documents and improve accessibility.</p>
+  <p>You will also have better &#8220;hooks&#8221; to target your elements, avoiding excessive use of <code>id</code> or <code>class</code> attributes. WAI-ARIA Role values can not be repeated, but HTML5 elements can (you can have several <code>header</code> or <code>footer</code> elements in a single page), so it is easier to make sure you are targeting your actual document header, instead of affecting every possible <code>header</code> element that may in the future be put on your document</p>
+  <h2 id='wai-aria-code-example'>Can I see some code?</h2>
+  <p>Yeah, sure! :D here is a basic document skeleton with proper role attributes and values:</p>
+  <pre>
+    <code>
+&#60;!doctype html&#62;
+&#60;html&#62;
+&#60;head&#62;
+&#60;title&#62;Title of your document&#60;/title&#62;
+&#60;meta charset=&#34;utf-8&#34;&#62;
+&#60;meta name=&#34;description&#34; content=&#34;description of your document&#34;&#62;
+&#60;/head&#62;
+
+
+&#60;body&#62;
+
+&#60;header role=&#34;banner&#34;&#62;
+  &#60;h1&#62;Title of your document&#60;/h1&#62;
+  &#60;nav&#62;
+    &#60;ol role=&#34;navigation&#34;&#62;
+      &#60;li&#62;
+        &#60;a href=&#34;#&#34;&#62;alpha&#60;/a&#62;
+      &#60;/li&#62;
+      &#60;li&#62;
+        &#60;a href=&#34;#&#34;&#62;bravo&#60;/a&#62;
+      &#60;/li&#62;
+      &#60;li&#62;
+        &#60;a href=&#34;#&#34;&#62;charlie&#60;/a&#62;
+      &#60;/li&#62;
+      &#60;li&#62;
+        &#60;a href=&#34;#&#34;&#62;delta&#60;/a&#62;
+      &#60;/li&#62;
+    &#60;/ol&#62;
+    &#60;form role=&#34;search&#34;&#62;
+      &#60;input type=&#34;search&#34; placeholder=&#34;Need to find something?&#34;&#62;
+      &#60;input type=&#34;submit&#34; value=&#34;search&#34;&#62;
+    &#60;/form&#62;
+  &#60;/nav&#62;
+&#60;/header&#62;
+
+&#60;div role=&#34;main&#34;&#62;
+  &#60;h2&#62;Main Content&#60;/h2&#62;
+  &#60;p&#62;Juicy content&#60;/p&#62;
+&#60;/div&#62;
+
+&#60;aside role=&#34;complementary&#34;&#62;
+  &#60;h2&#62;Sidebar&#60;/h2&#62;
+  &#60;p&#62;Complementary content&#60;/p&#62;
+&#60;/aside&#62;
+
+&#60;footer role=&#34;contentinfo&#34;&#62;
+  &#60;h2&#62;Footer&#60;/h2&#62;
+  &#60;p&#62;Information about the document&#60;/p&#62;
+&#60;/footer&#62;
+
+&#60;/body&#62;
+&#60;/html&#62;
+    </code>
+  </pre>
+
+  <a href='http://www.w3.org/TR/wai-aria/roles#main' rel='help external' id='role-main'>
+    <code>
+      &#60;div role=&#34;main&#34;&#62;
+    </code>
+  </a>
+</div>
+
+<aside role='complementary'>
+  <h2>More About WAI-ARIA from:</h2>
+    <ul>
+      <li>
+        <a href='http://www.w3.org/TR/wai-aria/' rel='external'>W3C</a>
+      </li>
+      <li>
+        <a href='http://www.w3.org/WAI/intro/aria.php' rel='external'>Web Accessibility initiative</a>
+      </li>
+      <li>
+        <a href='http://www.alistapart.com/articles/waiaria' rel='external'>A List Apart</a>
+      </li>
+      <li>
+        <a href='http://dev.opera.com/articles/view/introduction-to-wai-aria/' rel='external'>Dev.Opera</a>
+      </li>
+    </ul>
+
+  <a href='http://www.w3.org/TR/wai-aria/roles#complementary' rel='help external' id='role-complementary'>
+    <code>
+      &#60;aside role=&#34;complementary&#34;&#62;
+    </code>
+  </a>
+</aside>
+
+<footer role='contentinfo'>
+  <p class='vcard'>Done with a lotta love &#9829; by <a href='http://mcdlr.com/' rel='author me' class='url fn'>DrummerHead</a>, you can find me on <a href='http://twitter.com/DrummerHead' rel='author me external' class='url'>Twitter</a> and also <a href='mailto:drummerhead&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;' rel='contact' class='email' >drop me a line</a> if you see any errors or just wanna say hi :)</p>
+
+  <a href='http://www.w3.org/TR/wai-aria/roles#contentinfo' rel='help external' id='role-contentinfo'>
+    <code>
+      &#60;footer role=&#34;contentinfo&#34;&#62;
+    </code>
+  </a>
+</footer>
+
+
+
+
+<!-- Google analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1030009-5");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- /Google analytics -->
+
+</body>
+</html>
