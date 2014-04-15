@@ -147,7 +147,7 @@ p a code {
 }
 nav {
 }
-[role="navigation"] {
+[role="navigation"] ol {
   width: 50%;
   float: left;
 }
